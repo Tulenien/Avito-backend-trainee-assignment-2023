@@ -1,9 +1,6 @@
 package main
 
 import (
-    "log"
-    "os"
-
     gin "github.com/gin-gonic/gin"
 )
 
