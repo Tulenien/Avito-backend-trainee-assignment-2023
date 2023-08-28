@@ -1,6 +1,15 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+    "log"
+    "os"
+
+    gin "github.com/gin-gonic/gin"
+)
+
+func someFunc(val int) int {
+	return val + 2
+}
 
 func main() {
  router := gin.Default()
