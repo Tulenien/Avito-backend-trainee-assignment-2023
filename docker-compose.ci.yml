@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   linter:
-    image: golangci/golangci-lint:v1.54-alpine
+    image: golangci/golangci-lint:latest
     volumes:
       - ./api/mod_cache:/go/pkg/mod
       - ./api/app:/usr/src/app
@@ -10,7 +10,7 @@ services:
     command: 'golangci-lint run'
 
   tester:
-    image: golang:v1.21.0-alpine3.18
+    image: golang:latest
     volumes:
       - ./api/mod_cache:/go/pkg/mod
       - ./api/app:/usr/src/app
