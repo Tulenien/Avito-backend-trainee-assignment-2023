@@ -8,7 +8,7 @@ func someFunc(val int) int {
 	return val + 2
 }
 
-func main() {
+func main() int {
  router := gin.Default()
 
  router.GET("/ping", func(c *gin.Context) {
@@ -16,6 +16,10 @@ func main() {
    "message": "pong",
   })
  })
-
- router.Run(":80")
+ 
+ err = router.Run(":80")
+ if (err != nil) {
+    return 0;
+ }
+ return 1;
 }
