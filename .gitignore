@@ -22,3 +22,6 @@ go.work
 
 # Docker container
 mod_cache/
+
+# Database credentials
+.env
