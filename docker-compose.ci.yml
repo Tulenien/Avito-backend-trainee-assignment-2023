@@ -4,15 +4,15 @@ services:
   linter:
     image: golangci/golangci-lint:latest
     volumes:
-      - ./api/mod_cache:/go/pkg/mod
-      - ./api/app:/usr/src/app
+      - ./mod_cache:/go/pkg/mod
+      - ./app/cmd:/usr/src/app
     working_dir: /usr/src/app
     command: 'golangci-lint run'
 
   tester:
     image: golang:latest
     volumes:
-      - ./api/mod_cache:/go/pkg/mod
-      - ./api/app:/usr/src/app
+      - ./mod_cache:/go/pkg/mod
+      - ./app/cmd:/usr/src/app
     working_dir: /usr/src/app
     command: 'go test -v ./...'
