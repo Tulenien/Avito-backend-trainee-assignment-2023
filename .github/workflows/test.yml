@@ -43,7 +43,7 @@ jobs:
     steps:
     - name: Create .env file
       run: | 
-        echo "${{ secrets.ENV_FILE }}" > .env
+        echo "${{ secrets.ENV_FILE }}" > ./.env
 
     - uses: actions/checkout@v3
 
