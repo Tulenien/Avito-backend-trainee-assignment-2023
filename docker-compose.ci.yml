@@ -2,8 +2,6 @@ version: '3.8'
 
 services:
   builder: &go-base
-    env_file:
-      - .env
     image: golang:latest
     volumes:
       - ./mod_cache:/go/pkg/mod
