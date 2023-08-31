@@ -13,5 +13,11 @@ create table segments (
 
 create table users_segments (
     user_id integer,
-    segment_id integer
+    segment_id integer,
+    constraint fk_users
+        foreign_key(user_id)
+        references users(id),
+    constraint fk_segments
+        foreign_key(segment_id)
+        references segmetns(id)
 );
