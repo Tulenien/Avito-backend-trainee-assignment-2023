@@ -32,7 +32,10 @@ jobs:
         service: unit-tester
 
     - name: Run Integration Tests
-      
+      uses: adrielcodeco/docker-compose-run-action@v1
+      with:
+        compose-file: './docker-compose.ci.yml'
+        service: integration-tester
 
   build:
     runs-on: ubuntu-latest
