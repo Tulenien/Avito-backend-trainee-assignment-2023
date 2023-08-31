@@ -33,9 +33,9 @@ services:
       - postgres-db:/var/lib/postgresql/data
       - ./app/database/sql/00_create_database.sql:/docker-entrypoint-initdb.d/00_create_database.sql
     environment:
-    - POSTGRES_USER=${{ test.DB_USER }
-    - POSTGRES_PASSWORD=${{ test.DB_PASSWORD }}
-    - POSTGRES_DB=${{ test.DB_NAME }}
+    - POSTGRES_USER=${{ DB_USER }
+    - POSTGRES_PASSWORD=${{ DB_PASSWORD }}
+    - POSTGRES_DB=${{ DB_NAME }}
 
 volumes:
   postgres-db:
