@@ -9,7 +9,7 @@ services:
       - ./mod_cache:/go/pkg/mod
       - .:/usr/src/app
     working_dir: /usr/scr/app
-    command: 'pwd & go build -o ./app/cmd/main'
+    command: 'go build -o ./app/cmd/main'
   linter:
     <<: *go-base
     image: golangci/golangci-lint:latest
