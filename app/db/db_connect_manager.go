@@ -33,7 +33,7 @@ func ConnectDb() {
 		os.Exit(2)
 	}
 
-	log.Println("Connected to database on port $s", os.Getenv("DB_PORT"))
+	log.Println("Connected to database")
 	db.Logger = logger.Default.LogMode(logger.Info)
 
 	DB = DbInstance{
