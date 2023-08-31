@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   env-creation:
-    command: >
+    run: |
       touch .env
       echo DB_USER=${{ test.DB_USER } >> .env
       echo DB_PASSWORD=${{ test.DB_PASSWORD }} >> .env
