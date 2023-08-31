@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.8'
 
 services:
   builder: &go-base
@@ -6,7 +6,6 @@ services:
     volumes:
       - ./mod_cache:/go/pkg/mod
       - .:/usr/src/app
-    working_dir: /usr/src/app
     command: 'go build -v -o main ./app/cmd/main'
   linter:
     <<: *go-base

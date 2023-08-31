@@ -1,6 +1,8 @@
 package main
 
 import (
+    "os"
+
     fiber "github.com/gofiber/fiber/v2"
     "github.com/Tulenien/Avito-backend-trainee-assignment-2023/app/database"
     //"github.com/Tulenien/Avito-backend-trainee-assignment-2023/app/repositories"
@@ -18,5 +20,9 @@ func main() {
 
  setupRoutes(app)
  
- app.Listen(":3000")
+ err := app.Listen(":3000")
+ if err != nil {
+    os.Exit(1)
+ }
+ os.Exit(0)
 }
