@@ -17,3 +17,18 @@ services:
     command: > 
       go test -v 
       ./app/cmd
+  integration-tester:
+    <<: *go-base
+    command: >
+      go test -v
+      ./app/repositories
+    depends_on:
+      - db
+  db:
+    container_name: testdb
+    image: postgres:15.2-alpine
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+      - ./app/database/sql/00_create_database.sql:/docker-entrypoint-initdb.d/00_create_database.sql
+    environment:
+      POSTGRES_DB: avitodb

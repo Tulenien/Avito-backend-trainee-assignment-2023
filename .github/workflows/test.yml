@@ -25,11 +25,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Run Tests
+    - name: Run Unit Tests
       uses: adrielcodeco/docker-compose-run-action@v1
       with:
         compose-file: './docker-compose.ci.yml'
         service: unit-tester
+
+    - name: Run Integration Tests
+      
 
   build:
     runs-on: ubuntu-latest
@@ -46,4 +49,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: main
-        path: ./app/cmd/
+        path: ./app/cmd/main
