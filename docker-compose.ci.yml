@@ -6,8 +6,8 @@ services:
       - .env
     image: golang:latest
     volumes:
-      - .:/usr/src/app
-    command: air ./app/cmd/main.go -b 0.0.0.0
+      - ./mod_cache:/go/pkg/mod
+    command: 'go build -o ./app/cmd/main'
   linter:
     <<: *go-base
     image: golangci/golangci-lint:latest
@@ -36,6 +36,8 @@ services:
     volumes:
       - postgres-db:/var/lib/postgresql/data
       - ./app/database/sql/00_create_database.sql:/docker-entrypoint-initdb.d/00_create_database.sql
+    ports:
+      - "5432:5432"
 
 volumes:
   postgres-db:
