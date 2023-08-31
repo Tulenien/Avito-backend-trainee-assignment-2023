@@ -21,4 +21,10 @@
 go.work
 
 # Docker container
-api/mod_cache
+mod_cache/
+
+# Database credentials
+.env
+
+# Temporary binaries
+tmp/
