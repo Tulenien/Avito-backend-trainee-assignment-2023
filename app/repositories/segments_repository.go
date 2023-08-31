@@ -64,7 +64,10 @@ func (sr *SegmentsRepository) RemoveSegment(name string) error {
 	 		 }
 	for _, value := range users {
 		fmt.Println("%w\n", value)
-		models.RemoveSegment(&value, segment)
+		err = models.RemoveSegment(&value, segment)
+		if err != nil {
+			return fmt.Errorf(`error when removing segment with name=%s on user with id=%d: %w`, name, value.ID, err)
+		}
 		sr.db.Save(&value)
 	}
 	sr.db.Delete(segment)
