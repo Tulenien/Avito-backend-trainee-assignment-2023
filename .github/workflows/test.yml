@@ -41,6 +41,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: test
     steps:
+    - name: Create .env file
+      run: | 
+        echo "${{ secrets.ENV_FILE }}" > .env
+
     - uses: actions/checkout@v3
 
     - name: Build
