@@ -2,7 +2,7 @@ package main
 
 import (
     fiber "github.com/gofiber/fiber/v2"
-    postgres "github.com/Tulenien/Avito-backend-trainee-assignment-2023/db"
+    "github.com/Tulenien/Avito-backend-trainee-assignment-2023/app/db"
 )
 
 func someFunc(val int) int {
@@ -10,7 +10,7 @@ func someFunc(val int) int {
 }
 
 func main() {
- postgres.ConnectDb()
+ db.ConnectDb()
 
  app := fiber.New()
 
