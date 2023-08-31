@@ -9,11 +9,11 @@ services:
     working_dir: /usr/src/app
     command: 'go build -v -o main ./app/cmd/main'
   linter:
-    << *go-base
+    <<: *go-base
     image: golangci/golangci-lint:latest
     command: 'golangci-lint run'
   unit-tester:
-    << *go-base
+    <<: *go-base
     command: > 
-    go test -v 
-    ./app/cmd
+      go test -v 
+      ./app/cmd
