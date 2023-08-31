@@ -7,7 +7,7 @@ services:
       - ./mod_cache:/go/pkg/mod
       - .:/usr/src/app
     working_dir: /usr/src/app
-    command: 'go buld -v -o main ./app/cmd/main'
+    command: 'go build -v -o main ./app/cmd/main'
   linter:
     << *go-base
     image: golangci/golangci-lint:latest
