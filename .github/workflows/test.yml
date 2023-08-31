@@ -42,6 +42,15 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: 'Create env file'
+        run: |
+          touch .env
+          echo DB_USER=${{ test.DB_USER } >> .env
+          echo DB_PASSWORD=${{ test.DB_PASSWORD }} >> .env
+          echo DB_NAME=${{ test.DB_NAME }} >> .env
+          echo DB_PORT=${{ test.DB_PORT }} >> .env
+          cat .env
+
     - name: Build
       uses: adrielcodeco/docker-compose-run-action@v1
       with:
