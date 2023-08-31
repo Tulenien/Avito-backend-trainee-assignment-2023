@@ -32,3 +32,6 @@ services:
       - ./app/database/sql/00_create_database.sql:/docker-entrypoint-initdb.d/00_create_database.sql
     environment:
       POSTGRES_DB: avitodb
+
+volumes:
+  postgres-db:
