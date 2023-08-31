@@ -1,4 +1,4 @@
-package db
+package database
 
 import (
 	"fmt"
@@ -11,12 +11,12 @@ import (
 )
 
 type DbInstance struct {
-	Db *gorm.DB
+	DB *gorm.DB
 }
 
 var DB DbInstance
 
-func ConnectDb() {
+func ConnectDB() {
 	dsn := fmt.Sprintf(
 		"host=db user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=Europe/Moscow",
 		os.Getenv("DB_USER"),
@@ -37,6 +37,13 @@ func ConnectDb() {
 	db.Logger = logger.Default.LogMode(logger.Info)
 
 	DB = DbInstance{
-		Db: db,
+		DB: db,
 	}
+}
+
+func GetConnection() (*gorm.DB, error) {
+	if DB.DB != nil {
+		return DB.DB, nil
+	}
+	return nil, fmt.Errorf(`db not connected`)
 }
