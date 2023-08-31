@@ -2,7 +2,8 @@ package main
 
 import (
     fiber "github.com/gofiber/fiber/v2"
-    "github.com/Tulenien/Avito-backend-trainee-assignment-2023/app/db"
+    "github.com/Tulenien/Avito-backend-trainee-assignment-2023/app/database"
+    //"github.com/Tulenien/Avito-backend-trainee-assignment-2023/app/repositories"
 )
 
 func someFunc(val int) int {
@@ -10,7 +11,8 @@ func someFunc(val int) int {
 }
 
 func main() {
- db.ConnectDb()
+ database.ConnectDB()
+ //userRepository := repositories.NewUsersRepository(database.DB.DB)
 
  app := fiber.New()
 
