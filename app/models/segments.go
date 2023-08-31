@@ -1,12 +1,6 @@
 package models
 
-import (
-	"fmt"
-
-	gorm "gorm.io/gorm"
-)
-
-type Segment struct {
-	Id uint `gorm:"primaryKey"`
+type Segments struct {
+	ID uint `gorm:"primaryKey"`
 	Name string
 }

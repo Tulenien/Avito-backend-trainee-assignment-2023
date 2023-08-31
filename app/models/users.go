@@ -1,12 +1,6 @@
 package models
 
-import (
-	"fmt"
-
-	gorm "gorm.io/gorm"
-)
-
-type UserEntity struct {
+type Users struct {
 	ID uint `gorm:"primaryKey"`
 	Segments []Segments `gorm:"many2many:users_segments"`
 }
