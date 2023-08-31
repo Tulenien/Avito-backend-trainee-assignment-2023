@@ -8,6 +8,6 @@ import (
 func setupRoutes(app *fiber.App) {
     app.Get("/segments", handlers.CreateNewSegment)
 	app.Get("/segments/:id", handlers.DeleteSegment)
-	app.Get("/users/:id/segments/[]:name/segments/[]:name", handlers.UpdateUserSegments)
+	app.Get("/users/:id/segments/:name/segments/:name", handlers.UpdateUserSegments)
 	app.Get("/users/:id/segments", handlers.GetUserSegments)
 }
