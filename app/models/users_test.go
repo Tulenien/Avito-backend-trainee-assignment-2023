@@ -20,4 +20,14 @@ func TestUsersRepository(t *testing.T) {
 			t.Logf("Segment %v added", segment1_add)
 		}
 	})
+
+	t.Run("Remove segments from user", func (t *testing.T) {
+		err := RemoveSegment(&user, segment1_add)
+
+		if err != nil {
+			t.Error(err)
+		} else {
+			t.Logf("Segment %v removed", segment1_add)
+		}
+	})
 }
