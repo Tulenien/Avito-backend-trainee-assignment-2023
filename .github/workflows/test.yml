@@ -12,16 +12,11 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - name: Create .env file
-      run: | 
-        echo "${{ secrets.ENV_FILE }}" > ./.env
-
-    - name: Create .env file
-      run: | 
-        echo "${{ secrets.ENV_FILE }}" > ./.env
-
     - uses: actions/checkout@v3
-
+    - name: Create .env file
+      run: | 
+        echo "${{ secrets.ENV_FILE }}" > ./.env
+  
     - name: Lint
       uses: adrielcodeco/docker-compose-run-action@v1
       with:
@@ -31,17 +26,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - name: Create .env file
-      run: | 
-        echo "${{ secrets.ENV_FILE }}" > ./.env
-
-    - name: Create .env file
-      run: | 
-        echo "${{ secrets.ENV_FILE }}" > ./.env
-
     - uses: actions/checkout@v3
-
-    - name: Run Unit Tests
+    - name: Create .env file
+      run: | 
+        echo "${{ secrets.ENV_FILE }}" > ./.env
+  
     - name: Run Unit Tests
       uses: adrielcodeco/docker-compose-run-action@v1
       with:
@@ -54,24 +43,13 @@ jobs:
         compose-file: './docker-compose.ci.yml'
         service: integration-tester
 
-    - name: Run Integration Tests
-      uses: adrielcodeco/docker-compose-run-action@v1
-      with:
-        compose-file: './docker-compose.ci.yml'
-        service: integration-tester
-
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Create .env file
-      run: | 
-        echo "${{ secrets.ENV_FILE }}" > ./.env
-
-    - name: Create .env file
-      run: | 
-        echo "${{ secrets.ENV_FILE }}" > ./.env
-
     - uses: actions/checkout@v3
+    - name: Create .env file
+      run: | 
+        echo "${{ secrets.ENV_FILE }}" > ./.env
 
     - name: Build
       uses: adrielcodeco/docker-compose-run-action@v1
