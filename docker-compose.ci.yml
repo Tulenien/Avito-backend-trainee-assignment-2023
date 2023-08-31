@@ -28,9 +28,9 @@ services:
     container_name: testdb
     image: postgres:latest
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=12345
-      - POSTGRES_DB=avitobd
+      - POSTGRES_USER=${{ test.DB_USER }}
+      - POSTGRES_PASSWORD=${{ test.DB_PASSWORD }}
+      - POSTGRES_DB=${{ test.DB_NAME }}
     volumes:
       - postgres-db:/var/lib/postgresql/data
       - ./app/database/sql/00_create_database.sql:/docker-entrypoint-initdb.d/00_create_database.sql
