@@ -27,6 +27,8 @@ services:
     depends_on:
       - db
   db:
+    env_file:
+      - .env
     container_name: testdb
     image: postgres:latest
     environment:
