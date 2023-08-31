@@ -6,7 +6,7 @@ import (
 	gorm "gorm.io/gorm"
 )
 
-type userEntity struct {
-	Id uint `gorm:"primaryKey"`
-	Segment pgtype.JSONB `gorm:"type:jsonb;default:'[]'"`
+type UserEntity struct {
+	ID uint `gorm:"primaryKey"`
+	Segments []Segments `gorm:"many2many:users_segments"`
 }
